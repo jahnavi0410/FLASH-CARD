@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Deck</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <img src="/flashcardimg.jpg" alt="Flashcard Image" class="img-fluid mb-3">
+    <h1 class="mb-4">Create Deck</h1>
+    <form action="#" th:action="@{/decks}" th:object="${deck}" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    <a href="/decks" class="btn btn-secondary mt-3">Back to Decks</a>
+</div>
+</body>
+</html>

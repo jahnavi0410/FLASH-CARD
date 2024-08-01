@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <img src="/flashcardimg.jpg" alt="Flashcard Image" class="img-fluid mb-3">
+    <h1 class="mb-4">Flashcards</h1>
+    <a href="/flashcards/new" class="btn btn-primary mb-3">Create New Flashcard</a>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Deck</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="flashcard : ${flashcards}">
+            <td th:text="${flashcard.question}"></td>
+            <td th:text="${flashcard.answer}"></td>
+            <td th:text="${flashcard.deck.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

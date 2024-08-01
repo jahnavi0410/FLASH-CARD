@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Flashcard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <img src="/flashcardimg.jpg" alt="Flashcard Image" class="img-fluid mb-3">
+    <h1 class="mb-4">Create New Flashcard</h1>
+    <form th:action="@{/flashcards}" th:object="${flashcard}" method="post">
+        <div class="form-group">
+            <label for="question">Question:</label>
+            <input type="text" class="form-control" id="question" th:field="*{question}" required>
+        </div>
+        <div class="form-group">
+            <label for="answer">Answer:</label>
+            <input type="text" class="form-control" id="answer" th:field="*{answer}" required>
+        </div>
+        <div class="form-group">
+            <label for="deck">Deck:</label>
+            <select class="form-control" id="deck" th:field="*{deck}" required>
+                <option th:each="deck : ${decks}" th:value="${deck.id}" th:text="${deck.name}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <a href="/flashcards" class="btn btn-secondary mt-3">Back to Flashcards</a>
+</div>
+</body>
+</html>
